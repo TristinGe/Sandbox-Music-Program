@@ -27,7 +27,8 @@ void draw()
 void keyPressed() 
 {
   //Another Play Button
-  if( key=='l' || key=='L') song1.loop(0);//Parameter is number of loops
+  int loopNum = 2; //Local Variable
+  if( key=='l' || key=='L') song1.loop(loopNum);//Parameter is number of loops
   //
   //song1.play();//Parameter is milli-seconds from start of audio file to start playing
   //
