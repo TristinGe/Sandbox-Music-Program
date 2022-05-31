@@ -27,7 +27,9 @@ void draw()
 void keyPressed() 
 {
   //Another Play Button
-  int loopNum = 2; //Local Variable
+  String keystr = String.valueOf(key);//Must press a number
+  println("Number of Repeats is", keystr);
+  int loopNum = 0; //Local Variable plays once and loops loopNum of times
   if( key=='l' || key=='L') song1.loop(loopNum);//Parameter is number of loops
   //
   //song1.play();//Parameter is milli-seconds from start of audio file to start playing
