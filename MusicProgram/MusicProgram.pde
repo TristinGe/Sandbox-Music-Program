@@ -21,7 +21,7 @@ void setup()
 
 void draw() 
 {
-  
+  if(song1.isLooping() )println("There are", song1.loopCount(), "loops left.");
 }//End draw()
 
 void keyPressed() 
