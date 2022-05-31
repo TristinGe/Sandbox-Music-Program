@@ -16,8 +16,7 @@ void setup()
   //Should declare landscape, portrait, or square
   minim = new Minim(this);//load from data directroy, loadFile should also load from project folder, like loadImage()
   song1 = minim.loadFile("MusicDownload/ヒグチアイ - 悪魔の子.mp3");//able to pass absolute pasths, file name & extension, and URL
-  song1.play();//Parameter is milli-seconds from start of audio file to start playing
-
+  
 }
 
 void draw() 
@@ -27,7 +26,11 @@ void draw()
 
 void keyPressed() 
 {
-  
+  //Another Play Button
+  if( key=='l' || key=='L') song1.loop(0);//Parameter is number of loops
+  //
+  //song1.play();//Parameter is milli-seconds from start of audio file to start playing
+  //
 }//End keyPressed()
 
 void mousePressed() 
