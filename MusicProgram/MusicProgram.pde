@@ -15,7 +15,9 @@ void setup()
   size(500, 600); //fullScreen(), displayWidth & displayHeight, leads to ScreenChecker()
   //Should declare landscape, portrait, or square
   minim = new Minim(this);//load from data directroy, loadFile should also load from project folder, like loadImage()
-  song1 = minim.loadFile();//able to pass absolute pasths, file name & extension, and URL
+  song1 = minim.loadFile("MusicDownload/ヒグチアイ - 悪魔の子.mp3");//able to pass absolute pasths, file name & extension, and URL
+  song1.play();//Parameter is milli-seconds from start of audio file to start playing
+
 }
 
 void draw() 
