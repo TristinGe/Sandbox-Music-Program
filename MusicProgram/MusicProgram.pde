@@ -21,12 +21,15 @@ void setup()
 
 void draw()
 {
-  if ( song1.isLooping() ) println("There are", song1.loopCount(), "loops left.");
+  if ( song1.isLooping() &&song1.loopCount()!=-1) println("There are", song1.loopCount(), "loops left.");
+  if ( song1.isLooping() &&song1.loopCount()==-1) println("Looping Infinitely1");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
 }//End draw
 //
 void keyPressed()
 {
+  //First Play Button
+  if (key=='p' || key=='P') song1.play();//Parameter is milli-seconds from start of audio file to start playing
   //Another Play Button, as a finite loop()
   //Only press a number for this code below
   println(key);
@@ -39,11 +42,14 @@ void keyPressed()
     song1.loop(loopNum); //Parameter is number of loops
     // if ( key=='l' || key=='L' ) song1.loop(loopNum); //Parameter is number of loops
   }
-  //if ( key>='2' && key!='9') println("I donot loop that much, press infinite loop.");
+  if (key=='i'||key=='I') song1.loop(); //Infinite loop, no parameter
+  if (key>='2'||key!='9') println("Press infinite loop");
   //
-  //First Play Button
-  //song1.play(); //Parameter is milli-seconds from start of audio file to start playing
-  //
+  if (key=='m'||key=='M') {
+    if ( song1.isMuted() ) 
+    {song1.unmute();} else {song1.mute();}}//Mute
+  if (key=='f'||key=='F') song1.skip(1000); //forward 1second/1000millisecond
+  if (key=='r'||key=='R') song1.skip(-1000); //backward
 }//End keyPressed
 //
 void mousePressed() {
