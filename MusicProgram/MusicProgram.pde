@@ -19,24 +19,34 @@ void setup()
   
 }
 
-void draw() 
+void draw()
 {
-  if(song1.isLooping() )println("There are", song1.loopCount(), "loops left.");
-}//End draw()
-
-void keyPressed() 
+  if ( song1.isLooping() ) println("There are", song1.loopCount(), "loops left.");
+  if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
+}//End draw
+//
+void keyPressed()
 {
-  //Another Play Button
-  String keystr = String.valueOf(key);//Must press a number
-  println("Number of Repeats is", keystr);
-  int loopNum = 0; //Local Variable plays once and loops loopNum of times
-  if( key=='l' || key=='L') song1.loop(loopNum);//Parameter is number of loops
+  //Another Play Button, as a finite loop()
+  //Only press a number for this code below
+  println(key);
+  if ( key=='1' || key=='9' ) {
+    if (key=='1') println("Looping Once");
+    if (key=='9') println("Looping nine times"); //Simulate Infinity
+    String keystr = String.valueOf(key); //Must press a number
+    println("Number of Repeats is", keystr); 
+    int loopNum = int(keystr); //Local Variable plays once and loops loopNum of times
+    song1.loop(loopNum); //Parameter is number of loops
+    // if ( key=='l' || key=='L' ) song1.loop(loopNum); //Parameter is number of loops
+  }
+  //if ( key>='2' && key!='9') println("I donot loop that much, press infinite loop.");
   //
-  //song1.play();//Parameter is milli-seconds from start of audio file to start playing
+  //First Play Button
+  //song1.play(); //Parameter is milli-seconds from start of audio file to start playing
   //
-}//End keyPressed()
-
-void mousePressed() 
-{
-  
-}//End mousePressed()
+}//End keyPressed
+//
+void mousePressed() {
+}//End mousePressed
+//
+//End MAIN
