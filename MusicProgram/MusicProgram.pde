@@ -15,7 +15,7 @@ void setup()
   size(500, 600); //fullScreen(), displayWidth & displayHeight, leads to ScreenChecker()
   //Should declare landscape, portrait, or square
   minim = new Minim(this);//load from data directroy, loadFile should also load from project folder, like loadImage()
-  song1 = minim.loadFile("MusicDownload/ヒグチアイ - 悪魔の子.mp3");//able to pass absolute pasths, file name & extension, and URL
+  song1 = minim.loadFile("MusicDownload/MusicProgram_MusicDownload_groove.mp3");//able to pass absolute pasths, file name & extension, and URL
   
 }
 
@@ -24,6 +24,8 @@ void draw()
   if ( song1.isLooping() &&song1.loopCount()!=-1) println("There are", song1.loopCount(), "loops left.");
   if ( song1.isLooping() &&song1.loopCount()==-1) println("Looping Infinitely1");
   if ( song1.isPlaying() && !song1.isLooping() ) println("Play Once");
+  //
+  println("Song Position", song1.position(), "Song Length", song1.length());
 }//End draw
 //
 void keyPressed()
@@ -48,8 +50,14 @@ void keyPressed()
   if (key=='m'||key=='M') {
     if ( song1.isMuted() ) 
     {song1.unmute();} else {song1.mute();}}//Mute
+  //
+  // Built-in question: .isPlaying(
   if (key=='f'||key=='F') song1.skip(1000); //forward 1second/1000millisecond
   if (key=='r'||key=='R') song1.skip(-1000); //backward
+  //
+  if (key=='s'||key=='S'){
+    if (song1.isPlaying() ){ song1.pause();song1.rewind();} else {song1.rewind();}
+  }
 }//End keyPressed
 //
 void mousePressed() {
