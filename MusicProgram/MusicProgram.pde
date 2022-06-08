@@ -114,6 +114,8 @@ void keyPressed()
     if ( song[currentSong].isPlaying() ) {
       song[currentSong].pause();
       song[currentSong].rewind();
+    //} else if (){
+     // song[currentSong].rewind();
     } else {
       song[currentSong].rewind();
     }
@@ -121,15 +123,29 @@ void keyPressed()
   //
   if ( key=='n' || key=='N' ) {
     if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      playlistArrayErrorN();
+      song[currentSong].play();
     } else {
-      if ( currentSong == numberOfSongs - 1 ) { //Throws error: ArrayIndexOutOfBounds
-        currentSong = numberOfSongs - numberOfSongs;
-      } else {
-        currentSong++;
-      }//End Catch "ArrayIndexOutOfBounds"
+      song[currentSong].rewind();
+      playlistArrayErrorN();
+      song[currentSong].play();
     }
   }//End Next Button
   //
+  if ( key=='b' || key=='B' ){
+  if ( song[currentSong].isPlaying() ) {
+      song[currentSong].pause();
+      song[currentSong].rewind();
+      playlistArrayErrorB();
+      song[currentSong].play();
+    } else {
+      song[currentSong].rewind();
+      playlistArrayErrorB();
+      song[currentSong].play();
+    }
+  }
 }//End keyPressed
 //
 void mousePressed() {
