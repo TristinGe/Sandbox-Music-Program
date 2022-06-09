@@ -107,8 +107,13 @@ void keyPressed()
   }//End Mute Button
   //
   //Built-in question: .isPlaying()
-  if ( key=='f' || key=='F' ) song[currentSong].skip( 1000 ); //Skip forward 1 second (1000 milliseconds)
-  if ( key=='r' || key=='R' ) song[currentSong].skip( -1000 ); //Skip backwards 1 second (1000 milliseconds)
+  if ( key==CODED ){if(keyCode==RIGHT){song[currentSong].skip( 1000 );}}  //Skip forward 1 second (1000 milliseconds)
+  
+  
+  
+  
+  
+  if ( key==CODED ){if(keyCode==LEFT){song[currentSong].skip( -1000 );}} //Skip backwards 1 second (1000 milliseconds)
   //
   if ( key=='s' || key=='S' ) { //Stop Button
     if ( song[currentSong].isPlaying() ) {
